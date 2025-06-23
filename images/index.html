@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sellova - Welcome</title>
+
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="favicon.png" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1 id="welcome-title">Welcome to Sellova</h1>
+    <p id="welcome-subtitle">Your first guide to excellence in the competitive market</p>
+  </header>
+
+  <div class="choices">
+    <div class="choice" onclick="redirectToService('marketing')" id="choice-marketing">Marketing</div>
+    <div class="choice" onclick="redirectToService('web')" id="choice-web">Web Design</div>
+    <div class="choice" onclick="redirectToService('graphic')" id="choice-graphic">Graphics</div>
+  </div>
+<div class="brand-image">
+  <img src="3.JPG" alt="Sellova Branding" />
+</div>
+  <div class="language-selector">
+    <label for="language">Language:</label>
+    <select id="language" onchange="changeLanguage(this.value)">
+      <option value="ar">العربية</option>
+      <option value="en" selected>English</option>
+    </select>
+  </div>
+
+  <script>
+    let selectedLang = 'en';
+
+    function redirectToService(serviceId) {
+      window.location.href = `${serviceId}.html?lang=${selectedLang}&service=${serviceId}`;
+    }
+
+    function changeLanguage(lang) {
+      selectedLang = lang;
+      const content = {
+        en: {
+          welcomeTitle: 'Welcome to Sellova',
+          welcomeSubtitle: 'Your first guide to excellence in the competitive market',
+          marketing: 'Marketing',
+          web: 'Web Design',
+          graphic: 'Graphics'
+        },
+        ar: {
+          welcomeTitle: 'مرحبًا بك في Sellova',
+          welcomeSubtitle: 'دليلك الأول للتميز في السوق المنافس',
+          marketing: 'تسويق',
+          web: 'تصميم مواقع',
+          graphic: 'جرافك'
+        }
+      };
+
+      document.getElementById('welcome-title').innerText = content[lang].welcomeTitle;
+      document.getElementById('welcome-subtitle').innerText = content[lang].welcomeSubtitle;
+      document.getElementById('choice-marketing').innerText = content[lang].marketing;
+      document.getElementById('choice-web').innerText = content[lang].web;
+      document.getElementById('choice-graphic').innerText = content[lang].graphic;
+    }
+  </script>
+</body>
+</html>

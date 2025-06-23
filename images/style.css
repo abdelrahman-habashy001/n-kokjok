@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f5f5f5;
+  color: #333;
+  text-align: center;
+}
+.brand-image {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.brand-image img {
+  max-width: 40%;
+  height: auto;
+}
+
+header {
+  background: linear-gradient(to right, #2E5D9E, #40E0D0);
+  color: white;
+  padding: 60px 20px 40px;
+}
+header .logo {
+  height: 50px;
+  margin-bottom: 15px;
+}
+header h1 {
+  font-size: 32px;
+  margin: 10px 0;
+}
+header p {
+  font-size: 18px;
+}
+.choices {
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 900px;
+  padding: 0 20px;
+}
+.choice {
+  background: white;
+  border: 2px solid #2E5D9E;
+  padding: 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 180px;
+  font-weight: bold;
+}
+.choice:hover {
+  background: #2E5D9E;
+  color: white;
+}
+.language-selector {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 5px 10px;
+}
+.language-selector select {
+  font-size: 14px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 24px;
+  }
+
+  header p {
+    font-size: 16px;
+  }
+
+  .choice {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+.logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}

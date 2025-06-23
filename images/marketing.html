@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="favicon.png" />
+  <meta charset="UTF-8">
+  <title>Sellova | Marketing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .service-header {
+      margin-top: 40px;
+      font-size: 28px;
+      color: #2E5D9E;
+    }
+
+    .contact-options {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .contact-btn {
+      background-color: #FF7F50;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .contact-btn:hover {
+      background-color: #2E5D9E;
+    }
+
+    .language-selector {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 5px 10px;
+    }
+
+    .language-selector select {
+      font-size: 14px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .service-header {
+        font-size: 22px;
+        padding: 0 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Sellova</h1>
+    <p id="subtitle">We power your growth through smart marketing</p>
+  </header>
+
+  <main>
+    <h2 class="service-header" id="welcome">Welcome to our Marketing Service</h2>
+
+    <div class="contact-options">
+      <a class="contact-btn" href="https://wa.me/201092237306" target="_blank" id="whatsapp">Contact on WhatsApp</a>
+      <a class="contact-btn" href="https://www.facebook.com/messages/t/61577378469154" target="_blank" id="messenger">Contact on Messenger</a>
+    </div>
+  </main>
+
+  <div class="language-selector">
+    <label for="language">Language:</label>
+    <select id="language" onchange="changeLanguage(this.value)">
+      <option value="ar">العربية</option>
+      <option value="en" selected>English</option>
+    </select>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    let lang = params.get('lang') || 'en';
+    document.getElementById('language').value = lang;
+
+    function applyLanguage(language) {
+      const content = {
+        en: {
+          subtitle: 'We power your growth through smart marketing',
+          welcome: 'Welcome to our Marketing Service',
+          whatsapp: 'Contact on WhatsApp',
+          messenger: 'Contact on Messenger'
+        },
+        ar: {
+          subtitle: 'نقود نموك عبر تسويق ذكي',
+          welcome: 'مرحبًا بك في خدمة التسويق',
+          whatsapp: 'تواصل على واتساب',
+          messenger: 'تواصل على ماسنجر'
+        }
+      };
+
+      document.getElementById('subtitle').innerText = content[language].subtitle;
+      document.getElementById('welcome').innerText = content[language].welcome;
+      document.getElementById('whatsapp').innerText = content[language].whatsapp;
+      document.getElementById('messenger').innerText = content[language].messenger;
+    }
+
+    function changeLanguage(selectedLang) {
+      const url = new URL(window.location.href);
+      url.searchParams.set('lang', selectedLang);
+      window.location.href = url.toString();
+    }
+
+    applyLanguage(lang);
+  </script>
+</body>
+</html>
